@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #222;
+}
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
+  background-color: #222;
+}
+.outer-card {
+  width: 352px;
+  background-color: #222;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 10px;
+  margin-bottom: 30px;
+}
+.inner-card {
+  background-color: #222;
+}
+.inner-card h2 {
+  padding-bottom: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+  font-size: 28px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #c5c5c5;
+  border-bottom: 2px solid #7f5a83;
+}
+.inner-card p {
+  padding: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 1.2em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #c5c5c5;
+}
+.outer-card:hover h2 {
+  color: white;
+  text-shadow: 0 0 20px #0d324d, 0 0 15px #7f5a83;
+}
+.outer-card:hover p {
+  color: white;
+  text-shadow: 0 0 20px #0d324d, 0 0 15px #7f5a83;
+}
+.card-container .outer-card {
+  position: relative;
+  width: 80%;
+  background: repeating-conic-gradient(
+    from var(--a),
+    #0d324d 0%,
+    #7f5a83 10%,
+    transparent 10%,
+    transparent 50%
+  );
+  animation: animate 6s linear infinite;
+  padding: 12px;
+}
+.card-container .outer-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-conic-gradient(
+    from var(--a),
+    #0d324d 0%,
+    #7f5a83 10%,
+    transparent 10%,
+    transparent 50%
+  );
+  animation: animate 6s linear infinite;
+  animation-delay: -1.5s;
+}
+.card-container .outer-card::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 10px solid #222;
+  background: #222;
+}
+@property --a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes animate {
+  0% {
+    --a: 0deg;
+  }
+  100% {
+    --a: 360deg;
+  }
+}
+.card-container .outer-card .inner-card {
+  position: relative;
+  z-index: 10;
+}
+@media (max-width: 650px) and (min-width: 500px) {
+  .inner-card h2 {
+    font-size: 24px;
+  }
+  .inner-card p {
+    font-size: 1em;
+  }
+  .card-container .outer-card {
+    width: 90%;
+  }
+}
+@media (max-width: 500px) and (min-width: 440px) {
+  .inner-card h2 {
+    font-size: 22px;
+  }
+  .inner-card p {
+    font-size: 0.9em;
+  }
+  .card-container .outer-card {
+    width: 95%;
+  }
+}
+@media (max-width: 440px) {
+  .inner-card h2 {
+    font-size: 20px;
+  }
+  .inner-card p {
+    font-size: 0.8em;
+  }
+  .card-container .outer-card {
+    width: 100%;
+  }
+}
